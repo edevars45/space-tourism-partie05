@@ -1,11 +1,24 @@
+/* resources/css/app.css */
+
+/* 1) Tailwind doit venir en premier */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import des polices (Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow:wght@400;500&family=Barlow+Condensed:wght@400;600&display=swap');
+/* 2) Styles de base (optionnels) */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-black text-white;
+  }
+}
 
-/* Alias pratiques (facultatif) */
-.font-bellefair { font-family: 'Bellefair', serif; }
-.font-barlow { font-family: 'Barlow', sans-serif; }
-.font-barlow-condensed { font-family: 'Barlow Condensed', sans-serif; }
+/* 3) Helpers de polices (les fonts sont chargées dans layouts/app.blade.php) */
+@layer utilities {
+  .font-bellefair { font-family: 'Bellefair', serif; }
+  .font-barlow { font-family: 'Barlow', sans-serif; }
+  .font-barlow-condensed { font-family: 'Barlow Condensed', sans-serif; }
+}
